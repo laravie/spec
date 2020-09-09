@@ -50,7 +50,7 @@ class Result implements Contracts\Result
      *
      * @return static
      */
-    public static function make(Contracts\Specification $specification)
+    public static function from(Contracts\Specification $specification)
     {
         return new static(
             $specification->name(), $specification->description()
