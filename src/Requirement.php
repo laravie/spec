@@ -53,13 +53,7 @@ class Requirement implements Contracts\Requirement
      */
     public function passes(): bool
     {
-        if (\is_null($this->results)) {
-            $this->results = $this->specifications->mapWithKeys(static function ($specification) {
-                return [$specification->uid() => $specification->validate()];
-            });
-        }
-
-        return $this->results->filter(static function ($result) {
+        return $this->results()->filter(static function ($result) {
             return $result->failed();
         })->isEmpty();
     }
@@ -81,11 +75,25 @@ class Requirement implements Contracts\Requirement
     }
 
     /**
+     * Get results from specifications.
+     */
+    public function results(): Collection
+    {
+        if (\is_null($this->results)) {
+            $this->results = $this->specifications->mapWithKeys(static function ($specification) {
+                return [$specification->uid() => $specification->validate()];
+            });
+        }
+
+        return $this->results;
+    }
+
+    /**
      * Get results errors.
      */
     public function errors(): Collection
     {
-        return $this->results->filter(function ($result) {
+        return $this->results()->filter(function ($result) {
             return $result->failed();
         })->map(function ($result) {
             return $result->errors();
@@ -97,7 +105,7 @@ class Requirement implements Contracts\Requirement
      */
     public function recommendations(): Collection
     {
-        return $this->results->map(function ($result) {
+        return $this->results()->map(function ($result) {
             return $result->recommendations();
         });
     }
