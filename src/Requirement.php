@@ -107,6 +107,8 @@ class Requirement implements Contracts\Requirement
     {
         return $this->results()->map(function ($result) {
             return $result->recommendations();
+        })->filter(function ($recommendations) {
+            return ! empty($recommendations);
         });
     }
 
