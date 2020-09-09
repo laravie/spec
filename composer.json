@@ -9,6 +9,11 @@
             "email": "crynobone@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Laravie\\Spec\\" : "src/"
+        }
+    },
     "require": {
         "php": ">=7.3",
         "illuminate/collections": "^8.0"
