@@ -93,9 +93,9 @@ class Requirement implements Contracts\Requirement
      */
     public function validated(): Collection
     {
-        return $this->results()->filter(function ($result) {
-            return ! $result->failed();
-        })->map(function ($result, $name) {
+        return $this->results()->filter(static function ($result) {
+            return $result->passes();
+        })->map(static function () {
             return true;
         });
     }
@@ -105,9 +105,9 @@ class Requirement implements Contracts\Requirement
      */
     public function errors(): Collection
     {
-        return $this->results()->filter(function ($result) {
+        return $this->results()->filter(static function ($result) {
             return $result->failed();
-        })->map(function ($result) {
+        })->map(static function ($result) {
             return $result->errors();
         });
     }
@@ -117,9 +117,9 @@ class Requirement implements Contracts\Requirement
      */
     public function recommendations(): Collection
     {
-        return $this->results()->map(function ($result) {
+        return $this->results()->map(static function ($result) {
             return $result->recommendations();
-        })->filter(function ($recommendations) {
+        })->filter(static function ($recommendations) {
             return ! empty($recommendations);
         });
     }

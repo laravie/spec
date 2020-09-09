@@ -5,9 +5,19 @@ namespace Laravie\Spec\Contracts;
 interface Specification
 {
     /**
-     * Get the specification UID.
+     * Specification UID.
      */
     public function uid(): string;
+
+    /**
+     * Specification name.
+     */
+    public function name(): string;
+
+    /**
+     * Specification description.
+     */
+    public function description(): string;
 
     /**
      * Validate the specification and return a result.

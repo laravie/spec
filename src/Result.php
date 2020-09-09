@@ -7,6 +7,20 @@ use Illuminate\Support\Collection;
 class Result implements Contracts\Result
 {
     /**
+     * Specification name.
+     *
+     * @var string
+     */
+    protected $name;
+
+    /**
+     * Specification description.
+     *
+     * @var string
+     */
+    protected $description;
+
+    /**
      * List of errors for the Result.
      *
      * @var \Illuminate\Support\Collection
@@ -21,12 +35,26 @@ class Result implements Contracts\Result
     protected $recommendations;
 
     /**
-     * Construct a result.
+     * Construct a new result.
      */
-    public function __construct()
+    public function __construct(string $name, string $description)
     {
+        $this->name = $name;
+        $this->description = $description;
         $this->errors = new Collection();
         $this->recommendations = new Collection();
+    }
+
+    /**
+     * Construct a new result from specification.
+     *
+     * @return static
+     */
+    public static function make(Contracts\Specification $specification)
+    {
+        return new static(
+            $specification->name(), $specification->description()
+        );
     }
 
     /**
@@ -84,4 +112,22 @@ class Result implements Contracts\Result
     {
         return $this->recommendations->all();
     }
+
+    /**
+     * Get the specification name,
+     */
+    public function name(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the specification description.
+     */
+    public function description(): string
+    {
+        return $this->description;
+    }
+
+
 }
