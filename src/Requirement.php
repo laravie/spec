@@ -89,6 +89,18 @@ class Requirement implements Contracts\Requirement
     }
 
     /**
+     * Get results passes validation.
+     */
+    public function validated(): Collection
+    {
+        return $this->results()->filter(function ($result) {
+            return ! $result->failed();
+        })->map(function ($result, $name) {
+            return true;
+        });
+    }
+
+    /**
      * Get results errors.
      */
     public function errors(): Collection
