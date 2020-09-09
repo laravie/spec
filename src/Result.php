@@ -21,7 +21,7 @@ class Result implements Contracts\Result
     protected $recommendations;
 
     /**
-     * Construct a result
+     * Construct a result.
      */
     public function __construct()
     {
@@ -52,7 +52,6 @@ class Result implements Contracts\Result
 
         return $this;
     }
-
 
     /**
      * Passes result.

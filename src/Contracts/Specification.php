@@ -1,15 +1,11 @@
 <?php
 
-
 namespace Laravie\Spec\Contracts;
-
 
 interface Specification
 {
     /**
      * Get the specification UID.
-     *
-     * @return string
      */
     public function uid(): string;
 

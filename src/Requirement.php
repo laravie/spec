@@ -113,7 +113,7 @@ class Requirement implements Contracts\Requirement
     }
 
     /**
-     * Get results recommendations
+     * Get results recommendations.
      */
     public function recommendations(): Collection
     {
@@ -123,5 +123,4 @@ class Requirement implements Contracts\Requirement
             return ! empty($recommendations);
         });
     }
-
 }

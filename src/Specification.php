@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Laravie\Spec;
 
 abstract class Specification implements Contracts\Specification
