@@ -114,7 +114,7 @@ class Result implements Contracts\Result
     }
 
     /**
-     * Get the specification name,
+     * Get the specification name,.
      */
     public function name(): string
     {
@@ -128,6 +128,4 @@ class Result implements Contracts\Result
     {
         return $this->description;
     }
-
-
 }

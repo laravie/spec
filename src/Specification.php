@@ -22,7 +22,7 @@ abstract class Specification implements Contracts\Specification
     /**
      * Specification description.
      */
-    abstract function description(): string;
+    abstract public function description(): string;
 
     /**
      * Validate the specification.

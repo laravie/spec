@@ -6,7 +6,6 @@ use Illuminate\Support\Collection;
 
 interface Requirement
 {
-
     /**
      * Add specification to current requirement.
      *
