@@ -27,5 +27,5 @@ abstract class Specification implements Contracts\Specification
     /**
      * Validate the specification.
      */
-    abstract public function validate(): Contracts\Result;
+    abstract public function validate(Contracts\Result $result): Contracts\Result;
 }

@@ -22,5 +22,5 @@ interface Specification
     /**
      * Validate the specification and return a result.
      */
-    public function validate(): Result;
+    public function validate(Result $result): Result;
 }

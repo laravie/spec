@@ -81,7 +81,7 @@ class Requirement implements Contracts\Requirement
     {
         if (\is_null($this->results)) {
             $this->results = $this->specifications->mapWithKeys(static function ($specification) {
-                return [$specification->uid() => $specification->validate()];
+                return [$specification->uid() => $specification->validate(Result::from($specification))];
             });
         }
 
