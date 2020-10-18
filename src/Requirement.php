@@ -22,6 +22,8 @@ class Requirement implements Contracts\Requirement
 
     /**
      * List of specification results.
+     *
+     * @var \Illuminate\Support\Collection
      */
     protected $results;
 
