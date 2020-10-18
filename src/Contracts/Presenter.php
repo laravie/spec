@@ -9,5 +9,5 @@ interface Presenter
      *
      * @return mixed
      */
-    public function handle(Result $result);
+    public function handle(Requirement $requirement);
 }
